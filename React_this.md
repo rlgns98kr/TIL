@@ -94,7 +94,7 @@
   <button onClick={a(this)}>button</button>
   ```
 
-  react가 아닌 html 태그에서의 this는 자기자신, 즉 node를 반환한다. 따라서 첫번째 출력은 `<button onClick={a.bind(this)}>button</button>` 가 된다. (html 에서는 bind메소드가 없기 때문에 this를 매개변수로서 전달해야 한다.)
+  react가 아닌 html 태그에서의 this는 자기자신, 즉 node를 반환한다. 따라서 첫번째 출력은 `<button onClick={a.bind(this)}>button</button>` 가 된다. (this를 함수 a의 매개변수 t로 전달하였다.)
 
   두번째 출력은 windows객체가 된다. (a의 인자로 this를 전달해주었을 뿐이고 a는 일반적인 호출이기 때문에 this windows객체가 된다.)
 
@@ -106,4 +106,4 @@
   <button onClick={a.bind(this, 'a')()}>button</button>
   ```
 
-  위와 같이 수정하면 함수 a에서의 this는 this가 되고 t는 a가 된다.
+  위와 같이 수정하면 함수 a에서의 this는 this가 되고 t는 a가 된다.(html에서는 onClick이벤트의 property에 함수의 실행을 값으로 넣는다. bind 메소드는 함수의 주소를 반환하기때문에 다음 ()로 실행을 값으로 넣어줘야 동작한다.)
